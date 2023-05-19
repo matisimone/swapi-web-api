@@ -1,0 +1,97 @@
+.page-layout {
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .page-header {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+
+    .title {
+      font-size: 80px;
+      margin: 22px 20px 20px 0;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .go-back {
+      margin-right: 10px;
+    }
+  }
+
+  .page-body {
+    .data {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px;
+      padding: 20px;
+
+      .planet-info {
+        .text {
+          font-size: 30px;
+          line-height: 50px;
+        }
+      }
+    }
+
+    .no-data {
+      width: 500px;
+      height: 305px;
+      font-size: 50px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .planet-drawing {
+      position: absolute;
+      top: 15%;
+      right: 10%;
+
+      ::ng-deep app-planet-drawing {
+        canvas {
+          width: 500px;
+        }
+      }
+    }
+
+    .spinner {
+      display: flex;
+      justify-content: center;
+      margin: 100px;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    flex-direction: column;
+
+    .page-body {
+      .data {
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+
+        .planet-drawing {
+          margin-top: 50px;
+          display: flex;
+          justify-content: center;
+          position: inherit;
+
+          ::ng-deep app-planet-drawing {
+            canvas {
+              width: 300px;
+            }
+          }
+        }
+      }
+
+      .no-data {
+        width: 300px;
+      }
+    }
+  }
+}
+

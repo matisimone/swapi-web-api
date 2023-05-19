@@ -1,0 +1,22 @@
+<mat-card class="card mat-elevation-z6">
+  <mat-card-header class="card-header">
+    <mat-card-title class="title">{{ planet ? (planet.name | uppercase) : null }}</mat-card-title>
+    <mat-card-subtitle>CLIMATE: {{planet ? planet.climate : null}}</mat-card-subtitle>
+    <mat-card-subtitle>TERRAIN: {{planet ? planet.terrain : null}}</mat-card-subtitle>
+    <mat-card-subtitle>DIAMETER: {{planet ? planet.diameter : null}}</mat-card-subtitle>
+    <mat-card-subtitle>ROTATION PERIOD: {{planet ? planet.rotation_period : null}}</mat-card-subtitle>
+    <mat-card-subtitle>POPULATION: {{planet ? planet.population : null}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content class="card-content">
+    <div class="no-data" *ngIf="planet?.diameter === '0' || planet?.diameter === 'unknown'"><span>?</span></div>
+    <app-planet-drawing
+      *ngIf="planet?.diameter !== '0' && planet?.diameter !== 'unknown'"
+      [diameter]="planet && planet.diameter"
+      [rotationPeriod]="planet && planet.rotation_period"
+      [climate]="planet && planet.climate">
+    </app-planet-drawing>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button (click)="handleExplore(planet &&planet.url)">EXPLORE</button>
+  </mat-card-actions>
+</mat-card>

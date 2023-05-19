@@ -1,0 +1,39 @@
+.page-layout {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+
+    .title {
+      font-size: 80px;
+      margin: 20px 20px 20px 0;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .sorting {
+      width: 20%;
+    }
+  }
+
+  .page-body {
+    display: flex;
+    justify-content: center;
+
+    .pagination {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .spinner {
+      display: flex;
+      justify-content: center;
+      margin: 100px;
+    }
+  }
+}

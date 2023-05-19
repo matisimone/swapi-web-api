@@ -1,0 +1,33 @@
+
+<div class="page-layout">
+  <div class="page-header">
+    <div class="title">PLANETS</div>
+    <mat-form-field class="sorting">
+      <mat-label>Sorted By</mat-label>
+      <mat-select (selectionChange)="sortBy($event.value)" [disabled]="!isReady">
+        <mat-option *ngFor="let sortType of sortTypes" [value]="sortType.value">
+          {{sortType.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="page-body">
+    <div [hidden]="!isReady" class="data">
+      <app-cards [planets]="paginatedData"></app-cards>
+      <div class="pagination" >
+        <mat-paginator
+          (page)="handlePageEvent($event)"
+          [length]="length"
+          [pageSize]="pageSize"
+          [pageIndex]="pageIndex"
+          aria-label="Select page">
+        </mat-paginator>
+      </div>
+    </div>
+    <div class="spinner" *ngIf="!isReady">
+      <mat-spinner></mat-spinner>
+    </div>
+  </div>
+</div>
+
+
